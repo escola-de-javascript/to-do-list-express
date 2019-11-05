@@ -1,0 +1,52 @@
+<%- include('../layouts/header', {title: 'Lista de tarefas'}) %>
+
+<%- include('../layouts/menu') %>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-four-fifths">
+        <h1 class="title size-4">Listas de Tarefas</h1>
+      </div>
+      <div class="column is-one-fifth">
+        <a href="checklist-form.html" class="button is-success is-small">Nova Lista</a>
+      </div>
+    </div>
+
+    <div class="columns">
+      <% checklists.forEach(checklist => { %>
+        <div class="column is-one-quarter">
+          <div class="card has-background-white-ter">
+            <div class="card-content">
+              <p class="subtitle is-size-5">
+                <%= checklist.name %>
+              </p>
+              <p class="subtitle is-size-6">
+                <%= checklist.tasks.count %> tarefas
+              </p>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item">
+                <span>
+                  <a href="/checklists/<%= checklist._id %>">Ver</a>
+                </span>
+              </p>
+              <p class="card-footer-item">
+                <span>
+                  <a href="checklist-form.html">Editar</a>
+                </span>
+              </p>
+              <p class="card-footer-item">
+                <span>
+                  <a href="#" class="has-text-danger">Remover</a>
+                </span>
+              </p>
+            </footer>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>
