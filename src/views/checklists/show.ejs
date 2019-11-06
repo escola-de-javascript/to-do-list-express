@@ -9,7 +9,7 @@
         <h1 class="title size-4"><%= checklist.name %></h1>
       </div>
       <div class="column is-one-fifth">
-        <a href="add-task.html" class="button is-success is-small">Nova Tarefa</a>
+        <a href="/checklists/<%= checklist._id %>/tasks/new" class="button is-success is-small">Nova Tarefa</a>
         <a href="/checklists" class="button is-small">Voltar</a>
       </div>
     </div>
@@ -19,7 +19,7 @@
     <% checklist.tasks.forEach(task => { %>
       <div class="columns">
         <div class="column is-four-fifths">
-          <input type="checkbox" /> <% task.name %>
+          <input type="checkbox" /> <%= task.name %>
         </div>
 
         <div class="column is-one-fifth">
